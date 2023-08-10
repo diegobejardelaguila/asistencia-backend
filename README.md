@@ -1,7 +1,7 @@
 # Instalación
 
 ```bash
-git clone https://github.com/diegobejardelaguila/developer-jr-challenge.git
+git clone [https://github.com/diegobejardelaguila/developer-jr-challenge.git](https://github.com/diegobejardelaguila/asistencia-backend.git)
 ```
 
 2. Crea un archivo .env basado en el archivo .env_example, tanto para docker como para el backend:
