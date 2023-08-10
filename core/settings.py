@@ -48,17 +48,10 @@ THIRD_PARTY_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'drf_yasg',
-    'django_api_gen', 
+
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
-
-API_GENERATOR = {
-    # pattern: 
-    # API_SLUG -> Import_PATH 
-    'asistencia'  : "apps.marcar_asistencia.models.Asistencia",
-}
-
 
 #ckeditor
 CKEDITOR_CONFIGS = {
