@@ -23,6 +23,8 @@ class AsistenciaView(APIView):
 
     @swagger_auto_schema(request_body=AsistenciaSerializer)
     def post(self, request):
+        user = request.user
+        request.data['user'] = user.id
         serializer = AsistenciaSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(data={
