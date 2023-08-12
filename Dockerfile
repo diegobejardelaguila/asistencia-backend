@@ -1,5 +1,10 @@
 FROM python:3.8.0-alpine3.10
 
+
+COPY wait-for.sh /app/wait-for.sh
+
+RUN chmod +x /app/wait-for.sh
+
 WORKDIR /app
 
 # set environment variables
@@ -16,6 +21,4 @@ RUN pip install -r requirements.txt
 
 COPY ./ ./
 
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
-
-
+CMD ["./wait-for.sh", "mysql-android", "python","manage.py","runserver","0.0.0.0:8000"]
