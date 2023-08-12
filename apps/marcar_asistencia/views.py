@@ -38,13 +38,16 @@ class AsistenciaView(APIView):
         }, status=HTTPStatus.OK)
 
     def get(self, request, pk=None):
+        user = request.user
+        print(user.id)
         if not pk:
             return Response({
-                'data': [AsistenciaSerializer(instance=obj).data for obj in Asistencia.objects.all()],
+                'data': [AsistenciaSerializer(instance=obj).data for obj in Asistencia.objects.filter(user=user.id)],
                 'success': True
             }, status=HTTPStatus.OK)
         try:
-            obj = get_object_or_404(Asistencia, pk=pk)
+            obj = get_object_or_404(Asistencia, pk=pk, user=user.id)
+        
         except Http404:
             return Response(data={
                 'message': 'object with given id not found.',
