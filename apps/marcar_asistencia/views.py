@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
+from datetime import datetime
 
 
 from .serializers import *
@@ -25,6 +26,12 @@ class AsistenciaView(APIView):
     def post(self, request):
         user = request.user
         request.data['user'] = user.id
+        entry_time = datetime.now().strftime("%H:%M:%S")
+        current_date = datetime.now().strftime("%Y-%m-%d")
+
+        request.data['fecha'] = current_date
+        request.data['entry_time'] = entry_time
+
         serializer = AsistenciaSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(data={
