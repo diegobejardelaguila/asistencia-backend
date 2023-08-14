@@ -30,6 +30,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=9, blank=True, null=True)
+    dni = models.CharField(len=8, blank=True, null=True)
     img_profile = models.ImageField(upload_to='user/profile', blank=True, null=True)
     expected_entry_time = models.TimeField(blank=True, null=True)
     expected_exit_time = models.TimeField(blank=True, null=True)
@@ -40,7 +41,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     objects = UserAccountManager()
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', 'dni']
 
     def __str__(self):
         return self.email
