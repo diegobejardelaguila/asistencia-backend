@@ -253,7 +253,7 @@ DJOSER = {
     'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
     'SEND_CONFIRMATION_EMAIL': True,
-    'SEND_ACTIVATION_EMAIL': True,
+    'SEND_ACTIVATION_EMAIL': False,
     'SET_USERNAME_RETYPE': True,
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'SET_PASSWORD_RETYPE': True,
@@ -264,6 +264,7 @@ DJOSER = {
     'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': ['http://localhost:8000/google', 'http://localhost:8000/facebook'],
     'SERIALIZERS': {
         'user_create': 'apps.user.serializers.UserSerializer',
+        'user_update': 'apps.user.serializers.UserSerializer',
         'user': 'apps.user.serializers.UserSerializer',
         'current_user': 'apps.user.serializers.UserSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
