@@ -28,7 +28,6 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     
     first_name = models.CharField(max_length=255)
-    image_profile = models.ImageField(upload_to='user/profile', blank=True, null=True)
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=9, blank=True, null=True)
     dni = models.CharField(max_length=8, blank=True, null=True)
