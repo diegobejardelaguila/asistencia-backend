@@ -31,7 +31,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     image_profile = models.ImageField(upload_to='user/profile', blank=True, null=True)
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=9, blank=True, null=True)
-    dni = models.CharField(len=8, blank=True, null=True)
+    dni = models.CharField(max_length=8, blank=True, null=True)
     img_profile = models.ImageField(upload_to='user/profile', blank=True, null=True)
     expected_entry_time = models.TimeField(blank=True, null=True)
     expected_exit_time = models.TimeField(blank=True, null=True)
